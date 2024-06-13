@@ -1,0 +1,58 @@
+@use "./mixins";
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+span,
+label,
+a,
+button,
+strong,
+p,
+ul,
+li {
+  margin: 0;
+  text-overflow: ellipsis;
+}
+
+* {
+  outline: none;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+/*
+* override
+*/
+div,
+span,
+p,
+small {
+  word-break: break-word;
+}
