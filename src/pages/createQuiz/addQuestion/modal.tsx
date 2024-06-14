@@ -1,15 +1,13 @@
 import { FC } from "react";
-import { Modal, Form, Button } from "antd";
+import { Modal, Button, FormInstance } from "antd";
 import AddFrom from "./form";
-
 interface AddModalProps {
+  form: FormInstance;
   open: boolean;
   onCancel: () => void;
 }
 
-const AddModal: FC<AddModalProps> = ({ open, onCancel }) => {
-  const [form] = Form.useForm();
-
+const AddModal: FC<AddModalProps> = ({ form, open, onCancel }) => {
   const onOk = () => {
     form.submit();
   };
@@ -25,7 +23,9 @@ const AddModal: FC<AddModalProps> = ({ open, onCancel }) => {
       onOk={onOk}
       destroyOnClose
       footer={[
-        <Button onClick={() => form.resetFields()}>Reset Form</Button>,
+        <Button key="reset" onClick={() => form.resetFields()}>
+          Reset Form
+        </Button>,
         <Button key="back" onClick={onCancel}>
           Cancel
         </Button>,
