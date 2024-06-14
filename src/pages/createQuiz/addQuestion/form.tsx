@@ -2,10 +2,10 @@ import { FC } from "react";
 import { Form, FormInstance, Input, Select } from "antd";
 
 const options = [
-  { value: 1, label: "one" },
-  { value: 2, label: "tow" },
-  { value: 3, label: "three" },
-  { value: 4, label: "four" },
+  { value: 0, label: "one" },
+  { value: 1, label: "tow" },
+  { value: 2, label: "three" },
+  { value: 3, label: "four" },
 ];
 
 const formInputItems = [
