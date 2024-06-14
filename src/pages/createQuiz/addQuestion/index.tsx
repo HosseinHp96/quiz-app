@@ -30,19 +30,23 @@ const AddQuestion: FC<IAddQuestion> = ({ add }) => {
   };
 
   return (
-    <Form.Provider
-      onFormFinish={(_name, { values }) => finish(values as IAddQuestionForm)}
-    >
+    <section>
       <Row justify="center">
         <Col span={22}>
-          <Button type="primary" onClick={showModal}>
-            Add Question
-          </Button>
+          <Form.Provider
+            onFormFinish={(_name, { values }) =>
+              finish(values as IAddQuestionForm)
+            }
+          >
+            <Button type="primary" onClick={showModal}>
+              Add Question
+            </Button>
 
-          <AddModal form={form} open={open} onCancel={hideModal} />
+            <AddModal form={form} open={open} onCancel={hideModal} />
+          </Form.Provider>
         </Col>
       </Row>
-    </Form.Provider>
+    </section>
   );
 };
 
