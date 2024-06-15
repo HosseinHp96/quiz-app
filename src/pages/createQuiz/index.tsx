@@ -2,15 +2,15 @@ import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddQuestion from "./addQuestion";
 import QuestionsList from "./questionsList";
-import QuizName from "./quizName";
-import { IQuestion, IQuizNameForm } from "../../interfaces";
+import QuizName from "./quizInfo";
+import { IQuestion, IQuizInfoForm } from "../../interfaces";
 import { Button, Col, Flex, Form, FormProps, message, Row, Space } from "antd";
 import { useAppContext } from "../../utils";
 
 const CreateQuiz: FC = () => {
   const [questions, setQuestions] = useState<IQuestion[]>([]);
 
-  const [quizNameForm] = Form.useForm<IQuizNameForm>();
+  const [quizNameForm] = Form.useForm<IQuizInfoForm>();
 
   const [messageApi, contextHolder] = message.useMessage();
 
@@ -29,13 +29,14 @@ const CreateQuiz: FC = () => {
     setQuestions([...newData]);
   };
 
-  const addQuiz: FormProps<IQuizNameForm>["onFinish"] = ({ name }) => {
+  const addQuiz: FormProps<IQuizInfoForm>["onFinish"] = ({ name, des }) => {
     if (questions.length) {
       setQuizzes([
         ...quizzes,
         {
           questions,
           name,
+          des,
           count: questions.length,
         },
       ]);

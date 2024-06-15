@@ -1,13 +1,13 @@
 import { Form, FormInstance, Input } from "antd";
 import { FC } from "react";
-import { IQuizNameForm } from "../../../interfaces";
+import { IQuizInfoForm } from "../../../interfaces";
 
-interface QuizNameProps {
+interface QuizInfoProps {
   form: FormInstance;
-  onFinish: (data: IQuizNameForm) => void;
+  onFinish: (data: IQuizInfoForm) => void;
 }
 
-const QuizName: FC<QuizNameProps> = ({ form, onFinish }) => {
+const QuizInfo: FC<QuizInfoProps> = ({ form, onFinish }) => {
   return (
     <Form
       name="quiz-name-form"
@@ -28,8 +28,21 @@ const QuizName: FC<QuizNameProps> = ({ form, onFinish }) => {
       >
         <Input placeholder="Enter the quiz name" />
       </Form.Item>
+
+      <Form.Item
+        name="des"
+        label="Quiz Description"
+        rules={[
+          {
+            required: true,
+            message: `Please enter the quiz description`,
+          },
+        ]}
+      >
+        <Input placeholder="Enter the quiz name" />
+      </Form.Item>
     </Form>
   );
 };
 
-export default QuizName;
+export default QuizInfo;

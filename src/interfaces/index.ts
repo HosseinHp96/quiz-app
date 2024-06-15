@@ -14,15 +14,15 @@ export interface IAddQuestionForm {
   des: string;
 }
 
-// Quizzed
-export interface IQuiz {
-  questions: IQuestion[];
-  count: number;
+// Quizzes
+export interface IQuizInfoForm {
   name: string;
+  des: string;
 }
 
-export interface IQuizNameForm {
-  name: string;
+export interface IQuiz extends IQuizInfoForm {
+  questions: IQuestion[];
+  count: number;
 }
 
 // Context
