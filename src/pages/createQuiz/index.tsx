@@ -1,22 +1,22 @@
 import { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AddQuestion from "./addQuestion";
-import { IQuestion } from "../../interfaces";
 import QuestionsList from "./questionsList";
-import { Button, Col, Flex, Row } from "antd";
-
-const data = Array.from({ length: 23 }).map((_, i) => ({
-  des: "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-  correct: i,
-  answers: [
-    "ly a series of design principles, practical patterns and high quality desig.",
-    "ly a series of design principles, practical patterns and high quality desig.",
-    "ly a series of design principles, practical patterns and high quality desig.",
-    "ly a series of design principles, practical patterns and high quality desig.",
-  ],
-}));
+import QuizName from "./quizName";
+import { IQuestion, IQuizNameForm } from "../../interfaces";
+import { Button, Col, Flex, Form, FormProps, message, Row, Space } from "antd";
+import { useAppContext } from "../../utils";
 
 const CreateQuiz: FC = () => {
-  const [questions, setQuestions] = useState<IQuestion[]>(data);
+  const [questions, setQuestions] = useState<IQuestion[]>([]);
+
+  const [quizNameForm] = Form.useForm<IQuizNameForm>();
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const { setQuizzes, quizzes } = useAppContext();
+
+  const navigate = useNavigate();
 
   const addQues = (data: IQuestion) => {
     setQuestions([data, ...questions]);
@@ -29,15 +29,43 @@ const CreateQuiz: FC = () => {
     setQuestions([...newData]);
   };
 
+  const addQuiz: FormProps<IQuizNameForm>["onFinish"] = ({ name }) => {
+    if (questions.length) {
+      setQuizzes([
+        ...quizzes,
+        {
+          questions,
+          name,
+          count: questions.length,
+        },
+      ]);
+
+      navigate("/quizzes");
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "The quiz must have at least one question",
+      });
+    }
+  };
+
   return (
     <>
+      {contextHolder}
+
       <Row justify="center">
         <Col span={22}>
-          <Flex gap="small" wrap>
-            <Button type="primary">Create Quiz</Button>
+          <Space direction="vertical" size="middle" style={{ display: "flex" }}>
+            <QuizName form={quizNameForm} onFinish={addQuiz} />
 
-            <AddQuestion add={addQues} />
-          </Flex>
+            <Flex gap="small" wrap>
+              <Button type="primary" onClick={() => quizNameForm.submit()}>
+                Create Quiz
+              </Button>
+
+              <AddQuestion add={addQues} />
+            </Flex>
+          </Space>
         </Col>
       </Row>
 
