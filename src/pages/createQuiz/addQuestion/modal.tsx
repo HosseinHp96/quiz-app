@@ -15,7 +15,7 @@ const AddModal: FC<AddModalProps> = ({ form, open, onCancel }) => {
   return (
     <Modal
       open={open}
-      title="Create a new question"
+      title="Add a new question"
       okText="Create"
       cancelText="Cancel"
       okButtonProps={{ autoFocus: true }}
@@ -30,7 +30,7 @@ const AddModal: FC<AddModalProps> = ({ form, open, onCancel }) => {
           Cancel
         </Button>,
         <Button key="submit" type="primary" onClick={onOk}>
-          Create
+          Add
         </Button>,
       ]}
     >

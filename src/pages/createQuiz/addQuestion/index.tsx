@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Button, Col, Row, Form } from "antd";
+import { Button, Form } from "antd";
 import AddModal from "./modal";
 import { IAddQuestionForm, IQuestion } from "../../../interfaces";
 interface IAddQuestion {
@@ -31,21 +31,13 @@ const AddQuestion: FC<IAddQuestion> = ({ add }) => {
 
   return (
     <section>
-      <Row justify="center">
-        <Col span={22}>
-          <Form.Provider
-            onFormFinish={(_name, { values }) =>
-              finish(values as IAddQuestionForm)
-            }
-          >
-            <Button type="primary" onClick={showModal}>
-              Add Question
-            </Button>
+      <Form.Provider
+        onFormFinish={(_name, { values }) => finish(values as IAddQuestionForm)}
+      >
+        <Button onClick={showModal}>Add Question</Button>
 
-            <AddModal form={form} open={open} onCancel={hideModal} />
-          </Form.Provider>
-        </Col>
-      </Row>
+        <AddModal form={form} open={open} onCancel={hideModal} />
+      </Form.Provider>
     </section>
   );
 };
