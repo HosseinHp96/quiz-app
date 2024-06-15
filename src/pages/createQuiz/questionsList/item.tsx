@@ -2,13 +2,13 @@ import { Button, List } from "antd";
 import { FC } from "react";
 import { IQuestion } from "../../../interfaces";
 
-interface IListItem {
+interface ListItemProps {
   index: number;
   item: IQuestion;
   remove: (index: number) => void;
 }
 
-const ListItem: FC<IListItem> = ({ index, item, remove }) => {
+const ListItem: FC<ListItemProps> = ({ index, item, remove }) => {
   return (
     <List.Item
       key={index}

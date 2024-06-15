@@ -3,12 +3,12 @@ import { Col, List, Row } from "antd";
 import { IQuestion } from "../../../interfaces";
 import ListItem from "./item";
 
-interface IQuestionsList {
+interface QuestionsListProps {
   questions: IQuestion[];
   remove: (index: number) => void;
 }
 
-const QuestionsList: React.FC<IQuestionsList> = ({ questions, remove }) => (
+const QuestionsList: React.FC<QuestionsListProps> = ({ questions, remove }) => (
   <Row justify="center">
     <Col span={22}>
       <List

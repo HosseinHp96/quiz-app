@@ -2,11 +2,11 @@ import { FC, useState } from "react";
 import { Button, Form } from "antd";
 import AddModal from "./modal";
 import { IAddQuestionForm, IQuestion } from "../../../interfaces";
-interface IAddQuestion {
+interface AddQuestionProps {
   add: (data: IQuestion) => void;
 }
 
-const AddQuestion: FC<IAddQuestion> = ({ add }) => {
+const AddQuestion: FC<AddQuestionProps> = ({ add }) => {
   const [open, setOpen] = useState(false);
 
   const [form] = Form.useForm<IAddQuestionForm>();
