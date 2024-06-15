@@ -26,8 +26,8 @@ const ListItem: FC<IListItem> = ({ index, item, remove }) => {
         <h5>Correct Answer: {item.correct}</h5>
 
         <ol>
-          {item.answers.map((ans) => (
-            <li>{ans}</li>
+          {item.answers.map((ans, i) => (
+            <li key={i}>{ans}</li>
           ))}
         </ol>
       </div>
