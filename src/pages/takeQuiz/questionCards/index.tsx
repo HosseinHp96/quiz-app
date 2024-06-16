@@ -1,18 +1,17 @@
 import { FC } from "react";
 import { Col, Form, Row, Space } from "antd";
-import { IQuestion } from "../../../interfaces";
+import { IQuestion, ITakeQuizFromFieldRes } from "../../../interfaces";
 import { hasUndefinedValue } from "../../../utils";
 import QCard from "./QCard";
-
 interface QuestionCardsProps {
   questions: IQuestion[];
-  finishQuiz: (data: object) => void;
+  finishQuiz: (data: Record<string, ITakeQuizFromFieldRes>) => void;
 }
 
 const QuestionCards: FC<QuestionCardsProps> = ({ questions, finishQuiz }) => {
   const [form] = Form.useForm();
 
-  const check = (data: Record<string, unknown>) => {
+  const check = (data: Record<string, ITakeQuizFromFieldRes>) => {
     const status = hasUndefinedValue(data);
     if (!status) {
       finishQuiz(data);

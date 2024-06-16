@@ -25,6 +25,17 @@ export interface IQuiz extends IQuizInfoForm {
   count: number;
 }
 
+export interface ITakeQuizFromFieldRes {
+  correctAnswer: number;
+  selectedAnswer: number;
+}
+
+export interface IQuizResult {
+  totalCount: number;
+  correctCount: number;
+  wrongCount: number;
+}
+
 // Context
 export interface IAppContext {
   quizzes: IQuiz[];

@@ -13,7 +13,7 @@ const QCard: FC<QCardProps> = ({ data, index }) => {
 
   const onChange = (e: RadioChangeEvent) => {
     setDisabled(true);
-    setValue(e.target.value);
+    setValue(e.target.value.selectedAnswer);
   };
 
   return (
@@ -22,7 +22,13 @@ const QCard: FC<QCardProps> = ({ data, index }) => {
         <Radio.Group onChange={onChange} disabled={disabled}>
           <Space direction="vertical">
             {data.answers.map((item, i) => (
-              <Radio value={i} key={i}>
+              <Radio
+                value={{
+                  selectedAnswer: i,
+                  correctAnswer: data.correct,
+                }}
+                key={i}
+              >
                 {i + 1}: {item}
               </Radio>
             ))}
