@@ -46,14 +46,20 @@ const Quizzes: FC = () => {
   return (
     <Row justify="center">
       <Col span={22}>
-        <Table
-          pagination={{
-            position: ["bottomCenter"],
-            pageSize: 2,
-          }}
-          columns={columns}
-          dataSource={quizzes}
-        />
+        <Space direction="vertical" size="middle" style={{ display: "flex" }}>
+          <Button onClick={() => navigate(`/quizzes/create`)} type="primary">
+            Create Quiz
+          </Button>
+
+          <Table
+            pagination={{
+              position: ["bottomCenter"],
+              pageSize: 6,
+            }}
+            columns={columns}
+            dataSource={quizzes}
+          />
+        </Space>
       </Col>
     </Row>
   );

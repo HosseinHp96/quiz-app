@@ -6,7 +6,23 @@ export const AppContext = createContext<IAppContext | null>(null);
 export const AppContextWrapper: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [quizzes, setQuizzes] = useState<IQuiz[]>([test, test, test]);
+  const [quizzes, setQuizzes] = useState<IQuiz[]>([
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+    test,
+  ]);
 
   const sharedState = {
     quizzes,
