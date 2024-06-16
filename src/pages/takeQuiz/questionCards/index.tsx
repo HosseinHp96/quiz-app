@@ -4,12 +4,12 @@ import { IQuestion } from "../../../interfaces";
 import { hasUndefinedValue } from "../../../utils";
 import QCard from "./QCard";
 
-interface QuestionCardProps {
+interface QuestionCardsProps {
   questions: IQuestion[];
   finishQuiz: (data: object) => void;
 }
 
-const QuestionCard: FC<QuestionCardProps> = ({ questions, finishQuiz }) => {
+const QuestionCards: FC<QuestionCardsProps> = ({ questions, finishQuiz }) => {
   const [form] = Form.useForm();
 
   const check = (data: Record<string, unknown>) => {
@@ -40,4 +40,4 @@ const QuestionCard: FC<QuestionCardProps> = ({ questions, finishQuiz }) => {
   );
 };
 
-export default QuestionCard;
+export default QuestionCards;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../../utils";
-import QuestionCard from "./questionCards";
+import QuestionCards from "./questionCards";
 
 const TakeQuiz: FC = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const TakeQuiz: FC = () => {
 
   return (
     <>
-      <QuestionCard
+      <QuestionCards
         questions={selectedQuiz.questions}
         finishQuiz={finishQuiz}
       />
