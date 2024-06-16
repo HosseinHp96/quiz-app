@@ -6,7 +6,7 @@ export const AppContext = createContext<IAppContext | null>(null);
 export const AppContextWrapper: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [quizzes, setQuizzes] = useState<IQuiz[]>([]);
+  const [quizzes, setQuizzes] = useState<IQuiz[]>([test]);
 
   const sharedState = {
     quizzes,
@@ -19,3 +19,61 @@ export const AppContextWrapper: FC<{ children: React.ReactNode }> = ({
 };
 
 export const AppConsumer = AppContext.Consumer;
+
+const test = {
+  name: "Test Quiz",
+  des: ' "this is a test quiz',
+  count: 10,
+  questions: [
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+    {
+      des: "Is this question 1?",
+      correct: 1,
+      answers: ["yes", "no", "both", "maybe"],
+    },
+  ],
+};
