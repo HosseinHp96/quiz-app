@@ -6,7 +6,7 @@ export const AppContext = createContext<IAppContext | null>(null);
 export const AppContextWrapper: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [quizzes, setQuizzes] = useState<IQuiz[]>([test]);
+  const [quizzes, setQuizzes] = useState<IQuiz[]>([test, test, test]);
 
   const sharedState = {
     quizzes,
@@ -40,40 +40,40 @@ const test = {
       correct: 1,
       answers: ["yes", "no", "both", "maybe"],
     },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
-    {
-      des: "Is this question 1?",
-      correct: 1,
-      answers: ["yes", "no", "both", "maybe"],
-    },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
+    // {
+    //   des: "Is this question 1?",
+    //   correct: 1,
+    //   answers: ["yes", "no", "both", "maybe"],
+    // },
   ],
 };

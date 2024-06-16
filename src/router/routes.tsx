@@ -15,6 +15,10 @@ const Routes: RouteObject[] = [
     element: <Pages.CreateQuiz />,
   },
   {
+    path: "quizzes/take-quiz/:id",
+    element: <Pages.TakeQuiz />,
+  },
+  {
     path: "*",
     element: <Navigate to="/" />,
   },
