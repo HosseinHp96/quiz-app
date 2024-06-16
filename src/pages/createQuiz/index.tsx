@@ -32,13 +32,13 @@ const CreateQuiz: FC = () => {
   const addQuiz: FormProps<IQuizInfoForm>["onFinish"] = ({ name, des }) => {
     if (questions.length) {
       setQuizzes([
-        ...quizzes,
         {
           questions,
           name,
           des,
           count: questions.length,
         },
+        ...quizzes,
       ]);
 
       navigate("/quizzes");
