@@ -1,5 +1,3 @@
-@use "./mixins";
-
 html {
   height: 100%;
 }
@@ -45,12 +43,6 @@ ul {
   padding: 0;
 }
 
-// li {
-//   list-style: none;
-// }
-/*
-* override
-*/
 div,
 span,
 p,
