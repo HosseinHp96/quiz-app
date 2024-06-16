@@ -8,12 +8,12 @@ interface QCardProps {
 }
 
 const QCard: FC<QCardProps> = ({ data, index }) => {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState();
   const [disabled, setDisabled] = useState(false);
 
   const onChange = (e: RadioChangeEvent) => {
     setDisabled(true);
-    setValue(e.target.value.selectedAnswer);
+    setValue(e.target.value);
   };
 
   return (
@@ -22,13 +22,7 @@ const QCard: FC<QCardProps> = ({ data, index }) => {
         <Radio.Group onChange={onChange} disabled={disabled}>
           <Space direction="vertical">
             {data.answers.map((item, i) => (
-              <Radio
-                value={{
-                  selectedAnswer: i,
-                  correctAnswer: data.correct,
-                }}
-                key={i}
-              >
+              <Radio value={i} key={i}>
                 {i + 1}: {item}
               </Radio>
             ))}
