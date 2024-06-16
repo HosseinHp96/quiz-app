@@ -16,7 +16,7 @@ const QuestionsList: React.FC<QuestionsListProps> = ({ questions, remove }) => (
         size="large"
         pagination={{
           align: "center",
-          pageSize: 2,
+          pageSize: 6,
         }}
         dataSource={questions}
         renderItem={(item, index) => (

@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
-import { Card, Form, Radio, RadioChangeEvent, Space } from "antd";
+import { Card, Form, Radio, RadioChangeEvent, Space, Typography } from "antd";
 import { IQuestion } from "../../../interfaces";
+
+const { Text } = Typography;
 
 interface QCardProps {
   data: IQuestion;
@@ -17,13 +19,13 @@ const QCard: FC<QCardProps> = ({ data, index }) => {
   };
 
   return (
-    <Card title={data.des} style={{ width: 500 }}>
+    <Card title={data.des} style={{ margin: "1.5rem 0" }}>
       <Form.Item name={index} rules={[{ required: true }]}>
         <Radio.Group onChange={onChange} disabled={disabled}>
           <Space direction="vertical">
             {data.answers.map((item, i) => (
               <Radio value={i} key={i}>
-                {i + 1}: {item}
+                <b>{i + 1}:</b> {item}
               </Radio>
             ))}
           </Space>
@@ -31,7 +33,17 @@ const QCard: FC<QCardProps> = ({ data, index }) => {
       </Form.Item>
 
       {disabled && (
-        <div>{value === data.correct ? "correct answer" : "wrong answer"}</div>
+        <div>
+          {value === data.correct ? (
+            <Text type="success">The answer is correct.</Text>
+          ) : (
+            <Space direction="vertical">
+              <Text type="danger">The answer is wrong.</Text>
+
+              <Text type="success">Correct answer: {data.correct}</Text>
+            </Space>
+          )}
+        </div>
       )}
     </Card>
   );

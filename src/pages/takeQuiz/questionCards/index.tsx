@@ -29,11 +29,9 @@ const QuestionCards: FC<QuestionCardsProps> = ({ questions, finishQuiz }) => {
             layout="horizontal"
             onValuesChange={(_, allFields) => check(allFields)}
           >
-            <Space direction="vertical" size={16}>
-              {questions.map((ques, i) => (
-                <QCard data={ques} key={i} index={i} />
-              ))}
-            </Space>
+            {questions.map((ques, i) => (
+              <QCard data={ques} key={i} index={i} />
+            ))}
           </Form>
         </Col>
       </Row>

@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Button, Card, Col, Row } from "antd";
+import { Button, Card, Col, Row, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { IQuizResult } from "../../../interfaces";
 
+const { Title } = Typography;
 interface ResultCardProps {
   result: IQuizResult;
   TakeQuizAgain: () => void;
@@ -32,20 +33,17 @@ const ResultCard: FC<ResultCardProps> = ({ result, TakeQuizAgain }) => {
             </Button>,
           ]}
         >
-          <div>
-            <p>Total number of questions:</p>
-            <p>{result.totalCount}</p>
-          </div>
+          <Title level={4}>
+            Total number of questions: {result.totalCount}
+          </Title>
 
-          <div>
-            <p>Number of correct answers:</p>
-            <p>{result.correctCount}</p>
-          </div>
+          <Title type="success" level={4}>
+            Number of correct answers: {result.correctCount}
+          </Title>
 
-          <div>
-            <p>Number of wrong answers:</p>
-            <p>{result.wrongCount}</p>
-          </div>
+          <Title type="danger" level={4}>
+            Number of wrong answers: {result.wrongCount}
+          </Title>
         </Card>
       </Col>
     </Row>
