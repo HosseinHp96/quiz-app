@@ -21,7 +21,7 @@ const QuestionCards: FC<QuestionCardsProps> = ({ questions, finishQuiz }) => {
   };
 
   return (
-    <section style={{ backgroundColor: "lightgray" }}>
+    <section>
       <Row justify="center">
         <Col span={22}>
           <Form
